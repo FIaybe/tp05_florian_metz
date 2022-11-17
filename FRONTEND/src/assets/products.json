@@ -1,0 +1,44 @@
+[
+    {
+        "id": "1",
+        "name": "hochet",
+        "description":"Hochet en bois",
+        "price": 10
+    },
+    {
+        "id": "2",
+        "name": "puzzle",
+        "description":"Puzzle en bois",
+        "price": 20
+    },
+    {
+        "id": "3",
+        "name": "livre",
+        "description":"Roman pas ouf",
+        "price": 30
+    },
+    {
+        "id": "4",
+        "name": "cuillère",
+        "description":"Pour les café",
+        "price": 20
+    },
+    {
+        "id": "5",
+        "name": "épée",
+        "description":"Pour les chevaliers",
+        "price": 30
+    },
+    {
+        "id": "6",
+        "name": "sabre laser",
+        "description":"Pour les jedi",
+        "price": 50
+    },
+    {
+        "id": "7",
+        "name": "avion",
+        "description":"Pour les riches",
+        "price": 2500
+    }
+]

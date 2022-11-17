@@ -1,0 +1,35 @@
+<div style="margin: 5em 0 0 5em;">
+  <button mat-raised-button color="primary" (click)="returnMethod()" style="margin-bottom: 2em;">Retour</button>
+  <div style="display: flex; justify-content: center;">
+    <mat-card *ngIf="clientIsCorrect" class="example-card" style="width: 40em">
+      <mat-card-title>{{client.name}} {{client.firstName}} </mat-card-title>
+      <mat-card-subtitle style="display:flex;">
+        <mat-icon aria-hidden="false" fontIcon="apartment"></mat-icon>
+        {{client.address}}, {{client.zipCode}} {{client.city}}, {{client.country}}
+      </mat-card-subtitle>
+      <mat-card-content>
+        <p style="display:flex;">
+          <mat-icon aria-hidden="false" fontIcon="call"></mat-icon>
+
+          Phone : {{client.phone | phoneFormat}}
+        </p>
+        <p style="display:flex;">
+          <mat-icon aria-hidden="false" fontIcon="email"></mat-icon>
+          Email : {{client.email}}
+        </p>
+        <p>
+          {{client.gender}}
+        </p>
+        <p>
+          {{client.login}}
+        </p>
+        <p>
+          {{client.password}}
+        </p>
+        <p>
+          {{client.passwordValidation}}
+        </p>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>

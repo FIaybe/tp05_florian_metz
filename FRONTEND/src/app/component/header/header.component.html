@@ -1,0 +1,10 @@
+<nav mat-tab-nav-bar>
+  <a mat-tab-link *ngFor="let link of navLinks" [routerLink]="link.link" routerLinkActive>
+    {{link.label}}
+  </a>
+
+  <a style="margin-top: 0.8em" [routerLink]="['/basket']">
+    <mat-icon matBadge="{{numberProduct$ | async}}" matBadgeColor="warn" class="material-symbols-outlined">shopping_cart
+    </mat-icon>
+  </a>
+</nav>
