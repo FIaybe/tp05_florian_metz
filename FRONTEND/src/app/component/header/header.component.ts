@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { Router } from '@angular/router';
 import { Select } from '@ngxs/store';
 import { Observable } from 'rxjs';
 import { Link } from 'src/app/core/model/Link';
@@ -14,11 +15,14 @@ export class HeaderComponent {
   connected = localStorage.getItem('connected') === 'true';
   @Input() navLinks: Link[];
 
+  constructor(private router: Router) { }
+
   @Select(ProductState.getNbProducts)
   numberProduct$!: Observable<number>;
 
   logout() {
     localStorage.setItem('connected', 'false');
+    this.router.navigate(['/']);
     location.reload();
   }
 

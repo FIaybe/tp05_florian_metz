@@ -36,6 +36,7 @@ export class LoginComponent {
         this.hint = false;
         localStorage.setItem('connected', 'true');
         this.router.navigate(['/']);
+        location.reload();
       }, error: (err) => {
         this.hint = true;
       }
