@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { DataService } from 'src/app/services/data/data.service';
 
 @Component({
@@ -14,7 +15,7 @@ export class LoginComponent {
   login = '';
   password = '';
 
-  constructor(private formBuilder: FormBuilder, private service: DataService) {
+  constructor(private formBuilder: FormBuilder, private service: DataService, private router: Router) {
     this.formgroup = this.formBuilder.group({
       login: ['', Validators.required],
       password: ['', Validators.required]
@@ -34,7 +35,7 @@ export class LoginComponent {
         console.log(value);
         this.hint = false;
         localStorage.setItem('connected', 'true');
-        location.reload();
+        this.router.navigate(['/']);
       }, error: (err) => {
         this.hint = true;
       }
