@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { MatBadgeModule } from '@angular/material/badge';
+import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatTabsModule } from '@angular/material/tabs';
 import { RouterModule } from '@angular/router';
@@ -13,6 +14,7 @@ import { HeaderComponent } from './header.component';
     MatTabsModule,
     MatIconModule,
     MatBadgeModule,
+    MatButtonModule,
   ],
   exports: [HeaderComponent]
 })

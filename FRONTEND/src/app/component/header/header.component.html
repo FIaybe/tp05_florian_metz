@@ -1,10 +1,16 @@
 <nav mat-tab-nav-bar>
-  <a mat-tab-link *ngFor="let link of navLinks" [routerLink]="link.link" routerLinkActive>
-    {{link.label}}
-  </a>
+  <div *ngFor="let link of navLinks">
+    <a mat-tab-link [routerLink]="link.link" routerLinkActive *ngIf="connected">
+      {{link.label}}
+    </a>
+  </div>
 
-  <a style="margin-top: 0.8em" [routerLink]="['/basket']">
+  <a style="margin-top: 0.8em" [routerLink]="['/basket']" *ngIf="connected">
     <mat-icon matBadge="{{numberProduct$ | async}}" matBadgeColor="warn" class="material-symbols-outlined">shopping_cart
     </mat-icon>
   </a>
+  <button *ngIf="connected" mat-icon-button aria-label="deconnexion" (click)="logout()">
+    <mat-icon style="margin-top: 0.1em; margin-left: 1em; " class="material-symbols-outlined">logout
+    </mat-icon>
+  </button>
 </nav>

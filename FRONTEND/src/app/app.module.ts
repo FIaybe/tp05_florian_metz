@@ -1,4 +1,4 @@
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { MAT_FORM_FIELD_DEFAULT_OPTIONS } from '@angular/material/form-field';
 import { BrowserModule } from '@angular/platform-browser';
@@ -9,6 +9,7 @@ import { AppComponent } from './app.component';
 import { DisplayCatalogModule } from './component/catalog/catalog.module';
 import { FooterComponent } from './component/footer/footer.component';
 import { HeaderModule } from './component/header/header.module';
+import { ApiHttpInterceptor } from './core/Interceptor/ApiHttpInterceptor';
 import { ProductState } from './core/state/ProductState';
 import { OnlyLetterDirective } from './directives/onlyLetter/only-letter.directive';
 import { SpecificNumberDigitDirective } from './directives/specificNumberDigit/specific-number-digit.directive';
@@ -30,6 +31,7 @@ import { SpecificNumberDigitDirective } from './directives/specificNumberDigit/s
   ],
   providers: [
     { provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: { appearance: 'fill' } },
+    { provide: HTTP_INTERCEPTORS, useClass: ApiHttpInterceptor, multi: true },
   ],
   bootstrap: [AppComponent]
 })

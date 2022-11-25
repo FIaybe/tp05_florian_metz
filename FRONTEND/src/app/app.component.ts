@@ -12,7 +12,8 @@ export class AppComponent {
     {
       label: 'Welcome',
       link: '',
-      index: 0
+      index: 0,
+
     },
     {
       label: 'Création client',

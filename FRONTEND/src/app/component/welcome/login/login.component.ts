@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { DataService } from 'src/app/services/data/data.service';
 
 @Component({
   selector: 'app-login',
@@ -13,7 +14,7 @@ export class LoginComponent {
   login = '';
   password = '';
 
-  constructor(private formBuilder: FormBuilder) {
+  constructor(private formBuilder: FormBuilder, private service: DataService) {
     this.formgroup = this.formBuilder.group({
       login: ['', Validators.required],
       password: ['', Validators.required]
@@ -28,13 +29,12 @@ export class LoginComponent {
   }
 
   onSubmit() {
-    if (this.login != 'admin' || this.password != 'admin') {
-      this.hint = true
-    }
-    else {
-      console.log('ok');
-      this.hint = false
-
-    }
+    this.service.login(this.login, this.password).subscribe({
+      next: () => {
+        localStorage.setItem('connected', 'true')
+      }, error: () => {
+        this.hint = true;
+      }
+    });
   }
 }

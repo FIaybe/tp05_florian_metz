@@ -11,9 +11,14 @@ import { ProductState } from 'src/app/core/state/ProductState';
 })
 export class HeaderComponent {
 
+  connected = localStorage.getItem('connected') === 'true';
   @Input() navLinks: Link[];
 
   @Select(ProductState.getNbProducts)
   numberProduct$!: Observable<number>;
+
+  logout() {
+    localStorage.setItem('connected', 'false');
+  }
 
 }

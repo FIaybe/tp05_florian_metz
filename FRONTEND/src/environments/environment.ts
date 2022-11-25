@@ -5,7 +5,7 @@
 export const environment = {
   production: false,
   catalogue: '/assets/products.json',
-
+  apiUrl: 'https://tp05-florian-metz.onrender.com/api'
 };
 
 /*

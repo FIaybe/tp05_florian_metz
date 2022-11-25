@@ -1,0 +1,7 @@
+{
+    "/api":
+    {
+        "target": "https://tp05-florian-metz.onrender.com",
+        "secure": false
+    }
+}

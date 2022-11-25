@@ -19,9 +19,9 @@ export class DetailsComponent implements OnInit {
   ngOnInit(): void {
     this.id = this.route.snapshot.paramMap.get('id');
 
-    this.service.getCatalogues().subscribe({
-      next: (products) => {
-        this.product = products.find((product) => product.id === this.id);
+    this.service.getCatalogue(this.id).subscribe({
+      next: (product) => {
+        this.product = product;
       },
       error: (err) => {
         console.log(err);

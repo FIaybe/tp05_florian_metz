@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Client } from 'src/app/core/model/Client';
@@ -10,9 +10,13 @@ import { environment } from 'src/environments/environment';
 })
 export class DataService {
 
+  httpOptions = {
+    headers: new HttpHeaders({
+      'Content-Type': 'application/json'
+    })
+  };
   constructor(private client: HttpClient) { }
 
-  //create methods getClient()
   getClient(): Client {
     return new Client(
       'Doe', 'John', '1 rue de la paix',
@@ -20,21 +24,22 @@ export class DataService {
       '0612345678', 'test@email.fr', 'M',
       'test', 'test', 'test');
   }
-  //create methods postClient()
+
   postClient(client: Client) {
     console.log(client);
   }
 
   //postLogin : return a boolean
-  postLogin(login: string, password: string): boolean {
-    if (login === 'test' && password === 'test') {
-      return true;
-    }
-    return false;
+  login(login: string, password: string): Observable<any> {
+    return this.client.post<any>(environment.apiUrl + "/login", { login: login, password: password });
   }
 
   //GetCatalogue : return a list of products
   getCatalogues(): Observable<Product[]> {
-    return this.client.get<Product[]>(environment.catalogue);
+    return this.client.get<Product[]>(environment.apiUrl + '/product', this.httpOptions);
+  }
+
+  getCatalogue(id: number): Observable<Product> {
+    return this.client.get<Product>(environment.apiUrl + '/product/' + id, this.httpOptions);
   }
 }
