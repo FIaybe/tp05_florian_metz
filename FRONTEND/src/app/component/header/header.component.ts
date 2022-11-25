@@ -19,6 +19,7 @@ export class HeaderComponent {
 
   logout() {
     localStorage.setItem('connected', 'false');
+    location.reload();
   }
 
 }

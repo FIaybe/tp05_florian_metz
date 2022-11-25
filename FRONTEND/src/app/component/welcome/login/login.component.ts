@@ -30,9 +30,12 @@ export class LoginComponent {
 
   onSubmit() {
     this.service.login(this.login, this.password).subscribe({
-      next: () => {
-        localStorage.setItem('connected', 'true')
-      }, error: () => {
+      next: (value) => {
+        console.log(value);
+        this.hint = false;
+        localStorage.setItem('connected', 'true');
+        location.reload();
+      }, error: (err) => {
         this.hint = true;
       }
     });
