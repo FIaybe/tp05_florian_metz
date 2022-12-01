@@ -22,8 +22,8 @@ export class HeaderComponent {
 
   logout() {
     localStorage.setItem('connected', 'false');
-    this.router.navigate(['/']);
     location.reload();
+    this.router.navigate(['/']);
   }
 
 }
